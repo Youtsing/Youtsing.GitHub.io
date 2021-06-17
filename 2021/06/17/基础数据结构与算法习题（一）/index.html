@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-core.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-core.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"youtsing.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="PTA上第一章和第二章的习题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础数据结构与算法习题（一）">
+<meta property="og:url" content="https://youtsing.github.io/2021/06/17/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="Mathematics AND Compute">
+<meta property="og:description" content="PTA上第一章和第二章的习题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-17T03:33:11.458Z">
+<meta property="article:modified_time" content="2021-06-17T03:27:49.817Z">
+<meta property="article:author" content="青雨">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://youtsing.github.io/2021/06/17/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>基础数据结构与算法习题（一） | Mathematics AND Compute</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mathematics AND Compute</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>文章一览</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youtsing.github.io/2021/06/17/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="青雨">
+      <meta itemprop="description" content="用计算解析世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mathematics AND Compute">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基础数据结构与算法习题（一）
+        </h1>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-17 11:33:11 / 修改时间：11:27:49" itemprop="dateCreated datePublished" datetime="2021-06-17T11:33:11+08:00">2021-06-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>PTA上第一章和第二章的习题。</p>
+<span id="more"></span>
+<h1 id="函数题01——二分查找"><a href="#函数题01——二分查找" class="headerlink" title="函数题01——二分查找"></a>函数题01——二分查找</h1><p>本题要求实现二分查找算法。</p>
+<h3 id="函数接口定义："><a href="#函数接口定义：" class="headerlink" title="函数接口定义："></a>函数接口定义：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Position <span class="title">BinarySearch</span><span class="params">( List L, ElementType X )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中<code>List</code>结构定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Position;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    ElementType Data[MAXSIZE];</span><br><span class="line">    Position Last; <span class="comment">/* 保存线性表中最后一个元素的位置 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>L</code>是用户传入的一个线性表，其中<code>ElementType</code>元素可以通过&gt;、==、&lt;进行比较，并且题目保证传入的数据是递增有序的。函数<code>BinarySearch</code>要查找<code>X</code>在<code>Data</code>中的位置，即数组下标（注意：元素从下标1开始存储）。找到则返回下标，否则返回一个特殊的失败标记<code>NotFound</code>。</p>
+<h3 id="裁判测试程序样例："><a href="#裁判测试程序样例：" class="headerlink" title="裁判测试程序样例："></a>裁判测试程序样例：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NotFound 0</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Position;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    ElementType Data[MAXSIZE];</span><br><span class="line">    Position Last; <span class="comment">/* 保存线性表中最后一个元素的位置 */</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">ReadInput</span><span class="params">()</span></span>; <span class="comment">/* 裁判实现，细节不表。元素从下标1开始存储 */</span></span><br><span class="line"><span class="function">Position <span class="title">BinarySearch</span><span class="params">( List L, ElementType X )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L;</span><br><span class="line">    ElementType X;</span><br><span class="line">    Position P;</span><br><span class="line"></span><br><span class="line">    L = <span class="built_in">ReadInput</span>();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;X);</span><br><span class="line">    P = <span class="built_in">BinarySearch</span>( L, X );</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, P);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 你的代码将被嵌在这里 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">12 31 55 89 101</span><br><span class="line">31</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">26 78 233</span><br><span class="line">31</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Position <span class="title">BinarySearch</span><span class="params">( List L, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Start = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> End = L-&gt;Last;</span><br><span class="line">    <span class="comment">//int Middle = ( Start + End )/2;</span></span><br><span class="line">    <span class="keyword">while</span>( Start &lt;= End )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> Middle = ( Start + End )/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>( L-&gt;Data[Middle] == X )</span><br><span class="line">            <span class="keyword">return</span> Middle;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( L-&gt;Data[Middle] &lt; X )</span><br><span class="line">            Start = Middle + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            End = Middle - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> NotFound;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函数题02——线性结构1：两个有序链表序列的合并"><a href="#函数题02——线性结构1：两个有序链表序列的合并" class="headerlink" title="函数题02——线性结构1：两个有序链表序列的合并"></a>函数题02——线性结构1：两个有序链表序列的合并</h1><p>本题要求实现一个函数，将两个链表表示的递增整数序列合并为一个非递减的整数序列。</p>
+<h3 id="函数接口定义：-1"><a href="#函数接口定义：-1" class="headerlink" title="函数接口定义："></a>函数接口定义：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List <span class="title">Merge</span><span class="params">( List L1, List L2 )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中<code>List</code>结构定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">PtrToNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    ElementType Data; <span class="comment">/* 存储结点数据 */</span></span><br><span class="line">    PtrToNode   Next; <span class="comment">/* 指向下一个结点的指针 */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> PtrToNode List; <span class="comment">/* 定义单链表类型 */</span></span><br></pre></td></tr></table></figure>
+<p><code>L1</code>和<code>L2</code>是给定的带头结点的单链表，其结点存储的数据是递增有序的；函数<code>Merge</code>要将<code>L1</code>和<code>L2</code>合并为一个非递减的整数序列。应直接使用原序列中的结点，返回归并后的带头结点的链表头指针。</p>
+<h3 id="裁判测试程序样例：-1"><a href="#裁判测试程序样例：-1" class="headerlink" title="裁判测试程序样例："></a>裁判测试程序样例：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">PtrToNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    PtrToNode   Next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> PtrToNode List;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">Read</span><span class="params">()</span></span>; <span class="comment">/* 细节在此不表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">( List L )</span></span>; <span class="comment">/* 细节在此不表；空链表将输出NULL */</span></span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">Merge</span><span class="params">( List L1, List L2 )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L1, L2, L;</span><br><span class="line">    L1 = <span class="built_in">Read</span>();</span><br><span class="line">    L2 = <span class="built_in">Read</span>();</span><br><span class="line">    L = <span class="built_in">Merge</span>(L1, L2);</span><br><span class="line">    <span class="built_in">Print</span>(L);</span><br><span class="line">    <span class="built_in">Print</span>(L1);</span><br><span class="line">    <span class="built_in">Print</span>(L2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 你的代码将被嵌在这里 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 3 5</span><br><span class="line">5</span><br><span class="line">2 4 6 8 10</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4 5 6 8 10 </span><br><span class="line">NULL</span><br><span class="line">NULL</span><br></pre></td></tr></table></figure>
+<h3 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List <span class="title">Merge</span><span class="params">( List L1, List L2 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    List TempL = L;</span><br><span class="line">    L-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>( L1-&gt;Next != <span class="literal">NULL</span> &amp;&amp; L2-&gt;Next != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( L1-&gt;Next-&gt;Data &lt;= L2-&gt;Next-&gt;Data )</span><br><span class="line">        &#123;</span><br><span class="line">            TempL-&gt;Next = L1-&gt;Next;</span><br><span class="line">            TempL = TempL-&gt;Next;</span><br><span class="line">            L1-&gt;Next = TempL-&gt;Next;</span><br><span class="line">            TempL-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            TempL-&gt;Next = L2-&gt;Next;</span><br><span class="line">            TempL = TempL-&gt;Next;</span><br><span class="line">            L2-&gt;Next = TempL-&gt;Next;</span><br><span class="line">            TempL-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>( L1-&gt;Next != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        TempL-&gt;Next = L1-&gt;Next;</span><br><span class="line">        L1-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>( L2-&gt;Next != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        TempL-&gt;Next = L2-&gt;Next;</span><br><span class="line">        L2-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编程题01——最大子列和问题"><a href="#编程题01——最大子列和问题" class="headerlink" title="编程题01——最大子列和问题"></a>编程题01——最大子列和问题</h1><p>给定<em>K</em>个整数组成的序列{ <em>N</em>1, <em>N</em>2, …, <em>N**K</em> }，“连续子列”被定义为{ <em>N**i</em>, <em>N**i</em>+1, …, <em>N**j</em> }，其中 1≤<em>i</em>≤<em>j</em>≤<em>K</em>。“最大子列和”则被定义为所有连续子列元素的和中最大者。例如给定序列{ -2, 11, -4, 13, -5, -2 }，其连续子列{ 11, -4, 13 }有最大的和20。现要求你编写程序，计算给定整数序列的最大子列和。</p>
+<p>本题旨在测试各种不同的算法在各种数据情况下的表现。各组测试数据特点如下：</p>
+<ul>
+<li>数据1：与样例等价，测试基本正确性；</li>
+<li>数据2：102个随机整数；</li>
+<li>数据3：103个随机整数；</li>
+<li>数据4：104个随机整数；</li>
+<li>数据5：105个随机整数；</li>
+</ul>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><p>输入第1行给出正整数<em>K</em> (≤100000)；第2行给出<em>K</em>个整数，其间以空格分隔。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h3><p>在一行中输出最大子列和。如果序列中所有整数皆为负数，则输出0。</p>
+<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">-2 11 -4 13 -5 -2</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20</span><br></pre></td></tr></table></figure>
+<h3 id="答案-2"><a href="#答案-2" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubSeq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    <span class="keyword">int</span> Max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> Temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>( N &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> Input;</span><br><span class="line">        cin &gt;&gt; Input;</span><br><span class="line">        Temp += Input;</span><br><span class="line">        <span class="keyword">if</span>( Temp &gt; Max )</span><br><span class="line">        &#123;</span><br><span class="line">            Max = Temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( Temp &lt; <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            Temp = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        N--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Max = <span class="number">0</span>;</span><br><span class="line">    Max = <span class="built_in">MaxSubSeq</span>();</span><br><span class="line">    cout &lt;&lt; Max &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编程题02——Maximum-Subsequence-Sum"><a href="#编程题02——Maximum-Subsequence-Sum" class="headerlink" title="编程题02——Maximum Subsequence Sum"></a>编程题02——Maximum Subsequence Sum</h1><p>Given a sequence of <em>K</em> integers { <em>N</em>1, <em>N</em>2, …, <em>N**K</em> }. A continuous subsequence is defined to be { <em>N**i</em>, <em>N**i</em>+1, …, <em>N**j</em> } where 1≤<em>i</em>≤<em>j</em>≤<em>K</em>. The Maximum Subsequence is the continuous subsequence which has the largest sum of its elements. For example, given sequence { -2, 11, -4, 13, -5, -2 }, its maximum subsequence is { 11, -4, 13 } with the largest sum being 20.</p>
+<p>Now you are supposed to find the largest sum, together with the first and the last numbers of the maximum subsequence.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case occupies two lines. The first line contains a positive integer <em>K</em> (≤10000). The second line contains <em>K</em> numbers, separated by a space.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, output in one line the largest sum, together with the first and the last numbers of the maximum subsequence. The numbers must be separated by one space, but there must be no extra space at the end of a line. In case that the maximum subsequence is not unique, output the one with the smallest indices <em>i</em> and <em>j</em> (as shown by the sample case). If all the <em>K</em> numbers are negative, then its maximum sum is defined to be 0, and you are supposed to output the first and the last numbers of the whole sequence.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">-10 1 2 3 4 -5 -23 3 7 -21</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 1 4</span><br></pre></td></tr></table></figure>
+<h3 id="答案-3"><a href="#答案-3" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MaxSubSeq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="keyword">int</span> TempN;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    TempN = N;</span><br><span class="line">    <span class="keyword">int</span> Max = <span class="number">0</span>; <span class="keyword">int</span> Temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> Start,TempStart;</span><br><span class="line">    <span class="keyword">int</span> End,TempEnd;</span><br><span class="line">    <span class="keyword">int</span> TempTrigger = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> ZeroCnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> NegCnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> First,Last;</span><br><span class="line">    <span class="keyword">while</span>( TempN &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> Input;</span><br><span class="line">        cin &gt;&gt; Input;</span><br><span class="line">        <span class="keyword">if</span>( TempN == N )</span><br><span class="line">            First = Input;</span><br><span class="line">        <span class="keyword">if</span>( TempN == <span class="number">1</span> )</span><br><span class="line">            Last = Input;</span><br><span class="line">        <span class="keyword">if</span>( Input &lt; <span class="number">0</span> )</span><br><span class="line">            NegCnt++;</span><br><span class="line">        <span class="keyword">if</span>( Input == <span class="number">0</span> )</span><br><span class="line">            ZeroCnt++;</span><br><span class="line">        <span class="keyword">if</span>( TempTrigger == <span class="number">1</span> )</span><br><span class="line">            TempStart = Input;</span><br><span class="line">        TempTrigger = <span class="number">0</span>;</span><br><span class="line">        TempEnd = Input;</span><br><span class="line">        Temp += Input;</span><br><span class="line">        <span class="keyword">if</span>( Temp &gt; Max )</span><br><span class="line">        &#123;</span><br><span class="line">            Max = Temp;</span><br><span class="line">            Start = TempStart;</span><br><span class="line">            End = TempEnd;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( Temp &lt; <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            Temp = <span class="number">0</span>;</span><br><span class="line">            TempTrigger = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TempN--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( NegCnt == N )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0 &quot;</span> &lt;&lt; First &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; Last &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( NegCnt + ZeroCnt == N )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0 0 0&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        cout &lt;&lt; Max &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; Start &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; End &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">MaxSubSeq</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编程题03——线性结构：一元多项式的乘法与加法运算"><a href="#编程题03——线性结构：一元多项式的乘法与加法运算" class="headerlink" title="编程题03——线性结构：一元多项式的乘法与加法运算"></a>编程题03——线性结构：一元多项式的乘法与加法运算</h1><p>设计函数分别求两个一元多项式的乘积与和。</p>
+<h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式:"></a>输入格式:</h3><p>输入分2行，每行分别先给出多项式非零项的个数，再以指数递降方式输入一个多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式:"></a>输出格式:</h3><p>输出分2行，分别以指数递降方式输出乘积多项式以及和多项式非零项的系数和指数。数字间以空格分隔，但结尾不能有多余空格。零多项式应输出<code>0 0</code>。</p>
+<h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例:"></a>输入样例:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 3 4 -5 2  6 1  -2 0</span><br><span class="line">3 5 20  -7 4  3 1</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例:"></a>输出样例:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">15 24 -25 22 30 21 -10 20 -21 8 35 6 -33 5 14 4 -15 3 18 2 -6 1</span><br><span class="line">5 20 -4 4 -5 2 9 1 -2 0</span><br></pre></td></tr></table></figure>
+<h3 id="答案-4"><a href="#答案-4" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElementType Coef;</span><br><span class="line">    ElementType Pow;</span><br><span class="line">    List Next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">CreateList</span><span class="params">( List L )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    List Tem = L;</span><br><span class="line">    <span class="keyword">if</span>( N &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>( N &gt; <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">            cin &gt;&gt; NewList-&gt;Coef &gt;&gt; NewList-&gt;Pow;</span><br><span class="line">            NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">            Tem-&gt;Next = NewList;</span><br><span class="line">            Tem = NewList;</span><br><span class="line">            N--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">        NewList-&gt;Coef = NewList-&gt;Pow = <span class="number">0</span>;</span><br><span class="line">        NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        Tem-&gt;Next = NewList;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">AddList</span><span class="params">( List L1,List L2 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    L-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    List Tem = L;</span><br><span class="line">    List TemL1 = L1-&gt;Next;</span><br><span class="line">    List TemL2 = L2-&gt;Next;</span><br><span class="line">    <span class="keyword">while</span>( TemL1!=<span class="literal">NULL</span> &amp;&amp; TemL2!=<span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( TemL1-&gt;Pow &gt; TemL2-&gt;Pow )</span><br><span class="line">        &#123;</span><br><span class="line">            List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">            NewList-&gt;Coef = TemL1-&gt;Coef;</span><br><span class="line">            NewList-&gt;Pow = TemL1-&gt;Pow;</span><br><span class="line">            NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">            TemL1 = TemL1-&gt;Next;</span><br><span class="line">            Tem-&gt;Next = NewList;</span><br><span class="line">            Tem = Tem-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( TemL1-&gt;Pow &lt; TemL2-&gt;Pow )</span><br><span class="line">        &#123;</span><br><span class="line">            List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">            NewList-&gt;Coef = TemL2-&gt;Coef;</span><br><span class="line">            NewList-&gt;Pow = TemL2-&gt;Pow;</span><br><span class="line">            NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">            TemL2 = TemL2-&gt;Next;</span><br><span class="line">            Tem-&gt;Next = NewList;</span><br><span class="line">            Tem = Tem-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>( TemL1-&gt;Coef + TemL2-&gt;Coef != <span class="number">0</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">                NewList-&gt;Coef = TemL1-&gt;Coef + TemL2-&gt;Coef;</span><br><span class="line">                NewList-&gt;Pow = TemL1-&gt;Pow;</span><br><span class="line">                NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">                TemL1 = TemL1-&gt;Next;</span><br><span class="line">                TemL2 = TemL2-&gt;Next;</span><br><span class="line">                Tem-&gt;Next = NewList;</span><br><span class="line">                Tem = Tem-&gt;Next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                TemL1 = TemL1-&gt;Next;</span><br><span class="line">                TemL2 = TemL2-&gt;Next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>( TemL1 != <span class="literal">NULL</span> &amp;&amp; (TemL1-&gt;Pow != <span class="number">0</span> || TemL1-&gt;Coef != <span class="number">0</span>) )</span><br><span class="line">    &#123;</span><br><span class="line">        List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">        NewList-&gt;Coef = TemL1-&gt;Coef;</span><br><span class="line">        NewList-&gt;Pow = TemL1-&gt;Pow;</span><br><span class="line">        NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        TemL1 = TemL1-&gt;Next;</span><br><span class="line">        Tem-&gt;Next = NewList;</span><br><span class="line">        Tem = Tem-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>( TemL2 != <span class="literal">NULL</span> &amp;&amp; (TemL2-&gt;Pow != <span class="number">0</span> || TemL2-&gt;Coef != <span class="number">0</span>) )</span><br><span class="line">    &#123;</span><br><span class="line">        List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">        NewList-&gt;Coef = TemL2-&gt;Coef;</span><br><span class="line">        NewList-&gt;Pow = TemL2-&gt;Pow;</span><br><span class="line">        NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        TemL2 = TemL2-&gt;Next;</span><br><span class="line">        Tem-&gt;Next = NewList;</span><br><span class="line">        Tem = Tem-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( L-&gt;Next == <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">        NewList-&gt;Coef = NewList-&gt;Pow = <span class="number">0</span>;</span><br><span class="line">        NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        L-&gt;Next = NewList;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeleteList</span><span class="params">( List L )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List Tem = L-&gt;Next;</span><br><span class="line">    <span class="keyword">while</span>( Tem != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        L-&gt;Next = Tem-&gt;Next;</span><br><span class="line">        <span class="built_in">free</span>(Tem);</span><br><span class="line">        Tem = L-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">MultipleList</span><span class="params">( List L1,List L2 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    L-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    List InitialList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    InitialList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    InitialList-&gt;Coef = InitialList-&gt;Pow = <span class="number">0</span>;</span><br><span class="line">    L-&gt;Next = InitialList;</span><br><span class="line">    List Tem = L;</span><br><span class="line">    List TemL1 = L1-&gt;Next;</span><br><span class="line">    List SubL = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    SubL-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    List TemSubL = SubL;</span><br><span class="line">    <span class="keyword">while</span>( TemL1 != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        List TemL2 = L2-&gt;Next;</span><br><span class="line">        <span class="keyword">while</span>( TemL1-&gt;Coef != <span class="number">0</span> &amp;&amp; TemL2 != <span class="literal">NULL</span> &amp;&amp; TemL2-&gt;Coef != <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">            NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">            NewList-&gt;Pow = TemL1-&gt;Pow + TemL2-&gt;Pow;</span><br><span class="line">            NewList-&gt;Coef = TemL1-&gt;Coef * TemL2-&gt;Coef;</span><br><span class="line">            TemSubL-&gt;Next = NewList;</span><br><span class="line">            TemSubL = TemSubL-&gt;Next;</span><br><span class="line">            TemL2 = TemL2-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        L = <span class="built_in">AddList</span>( Tem, SubL );</span><br><span class="line">        <span class="built_in">DeleteList</span>(Tem);</span><br><span class="line">        <span class="built_in">free</span>(Tem);</span><br><span class="line">        Tem = L;</span><br><span class="line">        <span class="built_in">DeleteList</span>(SubL);</span><br><span class="line">        TemSubL = SubL;</span><br><span class="line">        TemL1 = TemL1-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L1 = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    L1-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    List L2 = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    L2-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//List AddL = (List)malloc(sizeof(struct LNode));</span></span><br><span class="line">    <span class="comment">//List MulL = (List)malloc(sizeof(struct LNode));</span></span><br><span class="line">    L1 = <span class="built_in">CreateList</span>( L1 );</span><br><span class="line">    L2 = <span class="built_in">CreateList</span>( L2 );</span><br><span class="line">    List AddL = <span class="built_in">AddList</span>( L1,L2 );</span><br><span class="line">    List MulL = <span class="built_in">MultipleList</span>( L1,L2 );</span><br><span class="line">    List TemAddL = AddL-&gt;Next;</span><br><span class="line">    List TemMulL = MulL-&gt;Next;</span><br><span class="line">    cout &lt;&lt; TemMulL-&gt;Coef &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemMulL-&gt;Pow;</span><br><span class="line">    TemMulL = TemMulL-&gt;Next;</span><br><span class="line">    <span class="keyword">while</span>( TemMulL != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemMulL-&gt;Coef &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemMulL-&gt;Pow;</span><br><span class="line">        TemMulL = TemMulL-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; TemAddL-&gt;Coef &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemAddL-&gt;Pow;</span><br><span class="line">    TemAddL = TemAddL-&gt;Next;</span><br><span class="line">    <span class="keyword">while</span>( TemAddL != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemAddL-&gt;Coef &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; TemAddL-&gt;Pow;</span><br><span class="line">        TemAddL = TemAddL-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">DeleteList</span>( L1 );</span><br><span class="line">    <span class="built_in">free</span>(L1);</span><br><span class="line">    <span class="built_in">DeleteList</span>( L2 );</span><br><span class="line">    <span class="built_in">free</span>(L2);</span><br><span class="line">    <span class="built_in">DeleteList</span>( AddL );</span><br><span class="line">    <span class="built_in">free</span>(AddL);</span><br><span class="line">    <span class="built_in">DeleteList</span>( MulL );</span><br><span class="line">    <span class="built_in">free</span>(MulL);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这一版的代码有几个<strong>心得</strong></li>
+</ul>
+<ol>
+<li>使用了头结点；</li>
+<li>构建头结点指针要做好初始化，包括头结点指向NULL指针，头结点不能赋值；</li>
+<li>在建立链表的循环时，要注意先将框架搭好。</li>
+</ol>
+<h1 id="编程题04——Reversing-Linked-List"><a href="#编程题04——Reversing-Linked-List" class="headerlink" title="编程题04——Reversing Linked List"></a>编程题04——Reversing Linked List</h1><p>Given a constant <em>K</em> and a singly linked list <em>L</em>, you are supposed to reverse the links of every <em>K</em> elements on <em>L</em>. For example, given <em>L</em> being 1→2→3→4→5→6, if <em>K</em>=3, then you must output 3→2→1→6→5→4; if <em>K</em>=4, you must output 4→3→2→1→5→6.</p>
+<h3 id="Input-Specification-1"><a href="#Input-Specification-1" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive <em>N</em> (≤105) which is the total number of nodes, and a positive <em>K</em> (≤<em>N</em>) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.</p>
+<p>Then <em>N</em> lines follow, each describes a node in the format:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Address Data Next</span><br></pre></td></tr></table></figure>
+<p>where <code>Address</code> is the position of the node, <code>Data</code> is an integer, and <code>Next</code> is the position of the next node.</p>
+<h3 id="Output-Specification-1"><a href="#Output-Specification-1" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each case, output the resulting ordered linked list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">00100 6 4</span><br><span class="line">00000 4 99999</span><br><span class="line">00100 1 12309</span><br><span class="line">68237 6 -1</span><br><span class="line">33218 3 00000</span><br><span class="line">99999 5 68237</span><br><span class="line">12309 2 33218</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00000 4 33218</span><br><span class="line">33218 3 12309</span><br><span class="line">12309 2 00100</span><br><span class="line">00100 1 99999</span><br><span class="line">99999 5 68237</span><br><span class="line">68237 6 -1</span><br></pre></td></tr></table></figure>
+<h3 id="答案-5"><a href="#答案-5" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxIndex 100000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Index;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    Index Address;</span><br><span class="line">    List Next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    List SList[MaxIndex];</span><br><span class="line">    <span class="keyword">int</span> Top;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">IndiceNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    Index Next;</span><br><span class="line">&#125; Indice[MaxIndex];</span><br><span class="line"></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Stack S = (Stack)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct SNode));</span><br><span class="line">    S-&gt;Top = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">( Stack S, List L )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    S-&gt;SList[++S-&gt;Top] = L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">List <span class="title">Pop</span><span class="params">( Stack S )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S-&gt;SList[S-&gt;Top--];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintAddress</span><span class="params">( Index Address )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> WeiShu = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( Address/WeiShu != <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        WeiShu *= <span class="number">10</span>;</span><br><span class="line">        cnt--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( Address == <span class="number">0</span> )</span><br><span class="line">        cnt--;</span><br><span class="line">    <span class="keyword">while</span>( cnt &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        cnt--;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; Address;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">( List L )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>( L-&gt;Next != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">PrintAddress</span>( L-&gt;Address );</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; L-&gt;Data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">PrintAddress</span>( L-&gt;Next-&gt;Address );</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        L = L-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">PrintAddress</span>( L-&gt;Address );</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; L-&gt;Data &lt;&lt; <span class="string">&quot; -1&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeleteList</span><span class="params">( List L )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>( L!=<span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        List Tmp = L;</span><br><span class="line">        L = L-&gt;Next;</span><br><span class="line">        <span class="built_in">free</span>(Tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Index Start;</span><br><span class="line">    <span class="keyword">int</span> N,SubN;</span><br><span class="line">    cin &gt;&gt; Start &gt;&gt; N &gt;&gt; SubN;</span><br><span class="line">    <span class="keyword">int</span> i = N;</span><br><span class="line">    <span class="keyword">while</span>( i &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        Index Order;</span><br><span class="line">        cin &gt;&gt; Order;</span><br><span class="line">        cin &gt;&gt; Indice[Order].Data &gt;&gt; Indice[Order].Next;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    List L = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">    L-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    L-&gt;Address = Start;</span><br><span class="line">    L-&gt;Data = Indice[Start].Data;</span><br><span class="line">    List TemList = L;</span><br><span class="line">    List StartList = <span class="literal">NULL</span>;</span><br><span class="line">    N = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( Indice[Start].Next != <span class="number">-1</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        Start = Indice[Start].Next;</span><br><span class="line">        List NewList = (List)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct LNode));</span><br><span class="line">        NewList-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        NewList-&gt;Address = Start;</span><br><span class="line">        NewList-&gt;Data = Indice[Start].Data;</span><br><span class="line">        TemList-&gt;Next = NewList;</span><br><span class="line">        TemList = TemList-&gt;Next;</span><br><span class="line">        N++;</span><br><span class="line">    &#125;</span><br><span class="line">    TemList = L;</span><br><span class="line">    Stack S = <span class="built_in">CreateStack</span>();</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( i % SubN == <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            S-&gt;Top = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;SubN;i++ )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">Push</span>( S,TemList );</span><br><span class="line">                TemList = TemList-&gt;Next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;SubN;i++ )</span><br><span class="line">            &#123;</span><br><span class="line">                List NewList = <span class="built_in">Pop</span>( S );</span><br><span class="line">                <span class="keyword">if</span>( StartList == <span class="literal">NULL</span> )</span><br><span class="line">                &#123;</span><br><span class="line">                    L = NewList;</span><br><span class="line">                    StartList = NewList;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    StartList-&gt;Next = NewList;</span><br><span class="line">                    StartList = StartList-&gt;Next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            StartList-&gt;Next = TemList;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    TemList = L;</span><br><span class="line">    <span class="built_in">PrintList</span>( TemList );</span><br><span class="line">    <span class="built_in">DeleteList</span>( TemList );</span><br><span class="line">    <span class="built_in">free</span>(S);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编程题05——线性结构4：Pop-Sequence"><a href="#编程题05——线性结构4：Pop-Sequence" class="headerlink" title="编程题05——线性结构4：Pop Sequence"></a>编程题05——线性结构4：Pop Sequence</h1><p>Given a stack which can keep <em>M</em> numbers at most. Push <em>N</em> numbers in the order of 1, 2, 3, …, <em>N</em> and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if <em>M</em> is 5 and <em>N</em> is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack, but not 3, 2, 1, 7, 5, 6, 4.</p>
+<h3 id="Input-Specification-2"><a href="#Input-Specification-2" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains 3 numbers (all no more than 1000): <em>M</em> (the maximum capacity of the stack), <em>N</em> (the length of push sequence), and <em>K</em> (the number of pop sequences to be checked). Then <em>K</em> lines follow, each contains a pop sequence of <em>N</em> numbers. All the numbers in a line are separated by a space.</p>
+<h3 id="Output-Specification-2"><a href="#Output-Specification-2" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each pop sequence, print in one line “YES” if it is indeed a possible pop sequence of the stack, or “NO” if not.</p>
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 7 5</span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line">3 2 1 7 5 6 4</span><br><span class="line">7 6 5 4 3 2 1</span><br><span class="line">5 6 4 3 7 2 1</span><br><span class="line">1 7 6 5 4 3 2</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+<h3 id="答案-6"><a href="#答案-6" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 1000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> Capacity;</span><br><span class="line">    <span class="keyword">int</span> Top;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">( <span class="keyword">int</span> M )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Stack S = (Stack)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct SNode));</span><br><span class="line">    S-&gt;Capacity = M;</span><br><span class="line">    S-&gt;Top = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">( Stack S )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( S-&gt;Top == <span class="number">-1</span> )</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFull</span><span class="params">( Stack S )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( S-&gt;Top == S-&gt;Capacity<span class="number">-1</span> )</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">( Stack S,ElementType Item )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    S-&gt;Data[++S-&gt;Top] = Item;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">( Stack S )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S-&gt;Data[S-&gt;Top--];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">RightIndice</span><span class="params">( ElementType Number[],Stack S,<span class="keyword">int</span> N )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Index = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">Push</span>(S,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( S-&gt;Data[S-&gt;Top] == Number[Index] )</span><br><span class="line">        &#123;</span><br><span class="line">            ElementType Item = <span class="built_in">Pop</span>(S);</span><br><span class="line">            Index++;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>( <span class="built_in">IsFull</span>(S) )</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">Push</span>(S,i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>( !<span class="built_in">IsEmpty</span>(S) )</span><br><span class="line">    &#123;</span><br><span class="line">        ElementType Item = <span class="built_in">Pop</span>(S);</span><br><span class="line">        <span class="keyword">if</span>( Item != Number[Index++] )</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitialStack</span><span class="params">( Stack S )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    S-&gt;Top = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M,N,K;</span><br><span class="line">    cin &gt;&gt; M &gt;&gt; N &gt;&gt; K;</span><br><span class="line">    Stack S = <span class="built_in">CreateStack</span>( M );</span><br><span class="line">    ElementType Number[N];</span><br><span class="line">    <span class="keyword">while</span>( K &gt; <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++ )</span><br><span class="line">            cin &gt;&gt; Number[i];</span><br><span class="line">        <span class="keyword">if</span>( <span class="built_in">RightIndice</span>( Number,S,N ) )</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">InitialStack</span>( S );</span><br><span class="line">        K--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+ 
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>青雨
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://youtsing.github.io/2021/06/17/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" title="基础数据结构与算法习题（一）">https://youtsing.github.io/2021/06/17/基础数据结构与算法习题（一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/11/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="基础数据结构与算法（一）">
+      <i class="fa fa-chevron-left"></i> 基础数据结构与算法（一）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%A2%9801%E2%80%94%E2%80%94%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.</span> <span class="nav-text">函数题01——二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">函数接口定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%81%E5%88%A4%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">裁判测试程序样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B1%EF%BC%9A"><span class="nav-number">1.0.3.</span> <span class="nav-text">输入样例1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B1%EF%BC%9A"><span class="nav-number">1.0.4.</span> <span class="nav-text">输出样例1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B2%EF%BC%9A"><span class="nav-number">1.0.5.</span> <span class="nav-text">输入样例2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B2%EF%BC%9A"><span class="nav-number">1.0.6.</span> <span class="nav-text">输出样例2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88"><span class="nav-number">1.0.7.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%A2%9802%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%841%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%BA%8F%E5%88%97%E7%9A%84%E5%90%88%E5%B9%B6"><span class="nav-number">2.</span> <span class="nav-text">函数题02——线性结构1：两个有序链表序列的合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89%EF%BC%9A-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">函数接口定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%81%E5%88%A4%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F%E6%A0%B7%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">裁判测试程序样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.0.3.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.0.4.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%9801%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">编程题01——最大子列和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.0.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.0.2.</span> <span class="nav-text">输出格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">3.0.3.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">3.0.4.</span> <span class="nav-text">输出样例:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-2"><span class="nav-number">3.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%9802%E2%80%94%E2%80%94Maximum-Subsequence-Sum"><span class="nav-number">4.</span> <span class="nav-text">编程题02——Maximum Subsequence Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Specification"><span class="nav-number">4.0.1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Specification"><span class="nav-number">4.0.2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Input"><span class="nav-number">4.0.3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Output"><span class="nav-number">4.0.4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-3"><span class="nav-number">4.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%9803%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%EF%BC%9A%E4%B8%80%E5%85%83%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E4%B9%98%E6%B3%95%E4%B8%8E%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">编程题03——线性结构：一元多项式的乘法与加法运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">5.0.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">5.0.2.</span> <span class="nav-text">输出格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">5.0.3.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">5.0.4.</span> <span class="nav-text">输出样例:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-4"><span class="nav-number">5.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%9804%E2%80%94%E2%80%94Reversing-Linked-List"><span class="nav-number">6.</span> <span class="nav-text">编程题04——Reversing Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Specification-1"><span class="nav-number">6.0.1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Specification-1"><span class="nav-number">6.0.2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Input-1"><span class="nav-number">6.0.3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Output-1"><span class="nav-number">6.0.4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-5"><span class="nav-number">6.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%9805%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844%EF%BC%9APop-Sequence"><span class="nav-number">7.</span> <span class="nav-text">编程题05——线性结构4：Pop Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Specification-2"><span class="nav-number">7.0.1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Specification-2"><span class="nav-number">7.0.2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Input-2"><span class="nav-number">7.0.3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sample-Output-2"><span class="nav-number">7.0.4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%94%E6%A1%88-6"><span class="nav-number">7.0.5.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="青雨"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">青雨</p>
+  <div class="site-description" itemprop="description">用计算解析世界</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Youtsing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Youtsing" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      大神链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://openfoam.top/" title="https:&#x2F;&#x2F;openfoam.top&#x2F;" rel="noopener" target="_blank">OF成长之路</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-06 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">青雨</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共6.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+        
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
